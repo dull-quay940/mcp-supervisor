@@ -1,5 +1,10 @@
 # MCP Supervisor
 
+![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Tests](https://github.com/freqkflag/mcp-supervisor/actions/workflows/test.yml/badge.svg)
+![GitHub release](https://img.shields.io/github/v/release/freqkflag/mcp-supervisor)
+
 A secure, self-hosted Model Context Protocol (MCP) Supervisor that manages, orchestrates, and monitors reusable autonomous agent workers on Ubuntu 24.04.
 
 ## 🌟 Features
