@@ -29,7 +29,11 @@ jobs:
       run: mkdir -p logs workspace
     
     - name: Setup environment
-      run: cp .env.example .env
+      run: |
+        cp .env.example .env
+        # Disable Docker for tests (use fork mode)
+        sed -i 's/DOCKER_ENABLED=true/DOCKER_ENABLED=false/' .env
+        cat .env
     
     - name: Verify configuration files
       run: |
