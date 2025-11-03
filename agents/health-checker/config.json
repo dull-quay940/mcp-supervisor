@@ -1,0 +1,54 @@
+{
+  "id": "health-checker",
+  "name": "Health Checker Agent",
+  "version": "1.0.0",
+  "description": "Monitors system health including CPU, memory, disk usage, and process status. Essential for system monitoring and alerting.",
+  "capabilities": [
+    "system-monitoring",
+    "cpu-check",
+    "memory-check",
+    "disk-check",
+    "process-check"
+  ],
+  "requiresAutonomy": false,
+  "defaultTimeout": 60000,
+  "parameters": {
+    "checks": {
+      "type": "array",
+      "description": "Array of checks to perform: 'all', 'cpu', 'memory', 'disk', 'system', 'process'",
+      "required": false,
+      "default": ["all"],
+      "items": {
+        "type": "string",
+        "enum": ["all", "cpu", "memory", "disk", "system", "process"]
+      }
+    },
+    "processName": {
+      "type": "string",
+      "description": "Process name to check (required if checks includes 'process')",
+      "required": false
+    }
+  },
+  "examples": [
+    {
+      "description": "Run all health checks",
+      "params": {
+        "checks": ["all"]
+      }
+    },
+    {
+      "description": "Check only CPU and memory",
+      "params": {
+        "checks": ["cpu", "memory"]
+      }
+    },
+    {
+      "description": "Check if Node.js is running",
+      "params": {
+        "checks": ["process"],
+        "processName": "node"
+      }
+    }
+  ]
+}
+

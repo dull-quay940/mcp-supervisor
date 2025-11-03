@@ -1,0 +1,58 @@
+{
+  "id": "image-optimize",
+  "name": "Image Optimization Agent",
+  "version": "1.0.0",
+  "description": "Compresses and optimizes images (JPEG, PNG, WebP) while maintaining quality. Reduces file sizes for faster loading times.",
+  "capabilities": [
+    "image-processing",
+    "compression",
+    "format-conversion"
+  ],
+  "requiresAutonomy": true,
+  "defaultTimeout": 120000,
+  "parameters": {
+    "inputPath": {
+      "type": "string",
+      "description": "Path to the input image file",
+      "required": true
+    },
+    "outputPath": {
+      "type": "string",
+      "description": "Path to save the optimized image (optional, defaults to input_optimized.ext)",
+      "required": false
+    },
+    "quality": {
+      "type": "number",
+      "description": "Quality level (1-100, default: 80)",
+      "required": false,
+      "default": 80,
+      "min": 1,
+      "max": 100
+    },
+    "format": {
+      "type": "string",
+      "description": "Output format: 'same', 'jpeg', 'png', 'webp' (default: same)",
+      "required": false,
+      "default": "same",
+      "enum": ["same", "jpeg", "png", "webp"]
+    }
+  },
+  "examples": [
+    {
+      "description": "Optimize image with default settings",
+      "params": {
+        "inputPath": "/root/Zpanel/agents/mcp-supervisor/workspace/photo.jpg"
+      }
+    },
+    {
+      "description": "Convert to WebP with high quality",
+      "params": {
+        "inputPath": "/root/Zpanel/agents/mcp-supervisor/workspace/photo.jpg",
+        "outputPath": "/root/Zpanel/agents/mcp-supervisor/workspace/photo.webp",
+        "format": "webp",
+        "quality": 90
+      }
+    }
+  ]
+}
+

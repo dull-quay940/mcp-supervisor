@@ -1,0 +1,60 @@
+{
+  "id": "data-transformer",
+  "name": "Data Transformer Agent",
+  "version": "1.0.0",
+  "description": "Converts data between different formats (JSON, CSV, XML). Useful for data migration and integration tasks.",
+  "capabilities": [
+    "data-conversion",
+    "json",
+    "csv",
+    "xml",
+    "format-transformation"
+  ],
+  "requiresAutonomy": true,
+  "defaultTimeout": 90000,
+  "parameters": {
+    "inputPath": {
+      "type": "string",
+      "description": "Path to the input file",
+      "required": true
+    },
+    "outputPath": {
+      "type": "string",
+      "description": "Path to save the converted file",
+      "required": true
+    },
+    "inputFormat": {
+      "type": "string",
+      "description": "Input data format: json, csv, xml",
+      "required": true,
+      "enum": ["json", "csv", "xml"]
+    },
+    "outputFormat": {
+      "type": "string",
+      "description": "Output data format: json, csv, xml",
+      "required": true,
+      "enum": ["json", "csv", "xml"]
+    }
+  },
+  "examples": [
+    {
+      "description": "Convert JSON to CSV",
+      "params": {
+        "inputPath": "/root/Zpanel/agents/mcp-supervisor/workspace/data.json",
+        "outputPath": "/root/Zpanel/agents/mcp-supervisor/workspace/data.csv",
+        "inputFormat": "json",
+        "outputFormat": "csv"
+      }
+    },
+    {
+      "description": "Convert CSV to XML",
+      "params": {
+        "inputPath": "/root/Zpanel/agents/mcp-supervisor/workspace/data.csv",
+        "outputPath": "/root/Zpanel/agents/mcp-supervisor/workspace/data.xml",
+        "inputFormat": "csv",
+        "outputFormat": "xml"
+      }
+    }
+  ]
+}
+

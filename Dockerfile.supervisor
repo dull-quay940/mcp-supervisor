@@ -1,0 +1,36 @@
+# Dockerfile for MCP Supervisor main service
+# Used when running the supervisor itself in Docker
+
+FROM node:20-alpine
+
+# Install Docker CLI for managing agent containers
+RUN apk add --no-cache \
+    docker-cli \
+    curl \
+    tini \
+    && rm -rf /var/cache/apk/*
+
+# Create app directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install --production
+
+# Copy application code
+COPY . .
+
+# Create necessary directories
+RUN mkdir -p logs workspace
+
+# Expose supervisor API port
+EXPOSE 3001
+
+# Use tini as init
+ENTRYPOINT ["/sbin/tini", "--"]
+
+# Start supervisor
+CMD ["node", "index.js"]
+

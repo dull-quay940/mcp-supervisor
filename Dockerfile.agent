@@ -1,0 +1,48 @@
+# Base image for MCP Supervisor agents
+# Lightweight Node.js Alpine image for secure, sandboxed execution
+
+FROM node:20-alpine
+
+# Add basic security labels
+LABEL maintainer="MCP Supervisor Team"
+LABEL description="Sandboxed execution environment for MCP agents"
+LABEL version="1.0.0"
+
+# Install minimal required packages
+RUN apk add --no-cache \
+    tini \
+    su-exec \
+    && rm -rf /var/cache/apk/*
+
+# Create non-root user for agent execution
+RUN addgroup -g 1000 agent && \
+    adduser -D -u 1000 -G agent agent
+
+# Set working directory
+WORKDIR /app
+
+# Install common Node.js dependencies for agents
+# These are available to all agents but can be overridden
+COPY package.json* ./
+RUN if [ -f package.json ]; then npm install --production; fi
+
+# Create directories for agent operations
+RUN mkdir -p /app/workspace /app/logs && \
+    chown -R agent:agent /app
+
+# Use tini as init to handle signals properly
+ENTRYPOINT ["/sbin/tini", "--"]
+
+# Switch to non-root user
+USER agent
+
+# Default command (overridden when container runs)
+CMD ["node", "--version"]
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD node -e "console.log('healthy')" || exit 1
+
+# Expose no ports by default (agents communicate via IPC or shared volumes)
+# Network isolation is configured at runtime
+

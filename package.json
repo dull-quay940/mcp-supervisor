@@ -1,0 +1,35 @@
+{
+  "name": "mcp-supervisor",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) Supervisor for managing and orchestrating autonomous agent workers",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "start": "NODE_ENV=production node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mcp",
+    "supervisor",
+    "agent",
+    "automation",
+    "orchestration",
+    "sandboxing"
+  ],
+  "author": "MCP Supervisor Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "pidusage": "^3.0.2",
+    "uuid": "^9.0.1",
+    "dotenv": "^16.3.1",
+    "dockerode": "^4.0.0",
+    "sharp": "^0.33.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+

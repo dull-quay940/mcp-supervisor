@@ -1,0 +1,73 @@
+{
+  "id": "file-processor",
+  "name": "File Processor Agent",
+  "version": "1.0.0",
+  "description": "Performs file operations including copy, move, rename, and organize files by extension, date, or size.",
+  "capabilities": [
+    "file-operations",
+    "copy",
+    "move",
+    "rename",
+    "organize"
+  ],
+  "requiresAutonomy": true,
+  "defaultTimeout": 120000,
+  "parameters": {
+    "operation": {
+      "type": "string",
+      "description": "Operation to perform: 'copy', 'move', 'rename', 'organize'",
+      "required": true,
+      "enum": ["copy", "move", "rename", "organize"]
+    },
+    "source": {
+      "type": "string",
+      "description": "Source file path (for copy/move operations)",
+      "required": false
+    },
+    "destination": {
+      "type": "string",
+      "description": "Destination file path (for copy/move operations)",
+      "required": false
+    },
+    "path": {
+      "type": "string",
+      "description": "File path (for rename operation)",
+      "required": false
+    },
+    "newName": {
+      "type": "string",
+      "description": "New filename (for rename operation)",
+      "required": false
+    },
+    "directory": {
+      "type": "string",
+      "description": "Directory to organize (for organize operation)",
+      "required": false
+    },
+    "organizeBy": {
+      "type": "string",
+      "description": "How to organize: 'extension', 'date', 'size'",
+      "required": false,
+      "enum": ["extension", "date", "size"]
+    }
+  },
+  "examples": [
+    {
+      "description": "Copy a file",
+      "params": {
+        "operation": "copy",
+        "source": "/root/Zpanel/agents/mcp-supervisor/workspace/file.txt",
+        "destination": "/root/Zpanel/agents/mcp-supervisor/workspace/backup/file.txt"
+      }
+    },
+    {
+      "description": "Organize files by extension",
+      "params": {
+        "operation": "organize",
+        "directory": "/root/Zpanel/agents/mcp-supervisor/workspace",
+        "organizeBy": "extension"
+      }
+    }
+  ]
+}
+

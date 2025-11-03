@@ -1,0 +1,91 @@
+{
+  "version": "1.0.0",
+  "description": "Security manifest defining safety rules and restrictions for MCP Supervisor agents",
+  "allowedDirectories": [
+    "/tmp",
+    "/root/Zpanel/agents/mcp-supervisor/workspace",
+    "/root/Zpanel/agents/mcp-supervisor/logs",
+    "/root/Zpanel/agents/mcp-supervisor/agents"
+  ],
+  "blockedCommands": [
+    "sudo",
+    "rm -rf /",
+    "rm -rf /*",
+    "dd",
+    "mkfs",
+    "fdisk",
+    "parted",
+    "format",
+    "reboot",
+    "shutdown",
+    "halt",
+    "poweroff",
+    "init",
+    "kill -9 1",
+    ":(){ :|:& };:",
+    "chmod 777 /",
+    "chown root",
+    "passwd",
+    "useradd",
+    "userdel",
+    "groupadd",
+    "groupdel"
+  ],
+  "blockedPaths": [
+    "/etc/passwd",
+    "/etc/shadow",
+    "/etc/sudoers",
+    "/etc/ssh",
+    "~/.ssh",
+    "/root/.ssh",
+    "Keychain",
+    "keychain",
+    "/System/Library/Keychains",
+    "~/Library/Keychains",
+    "/etc/security",
+    "/boot",
+    "/sys",
+    "/proc"
+  ],
+  "whitelistedApps": [
+    "node",
+    "npm",
+    "docker",
+    "git",
+    "curl",
+    "wget",
+    "cat",
+    "echo",
+    "ls",
+    "mkdir",
+    "touch",
+    "cp",
+    "mv"
+  ],
+  "requiresAutonomy": [
+    "file-delete",
+    "file-modify",
+    "network-access",
+    "docker-exec",
+    "system-command",
+    "package-install"
+  ],
+  "resourceLimits": {
+    "maxConcurrentAgents": 10,
+    "maxMemoryPerAgent": "512MB",
+    "maxCPUPerAgent": "1.0",
+    "maxDiskUsage": "10GB"
+  },
+  "docker": {
+    "enabled": true,
+    "baseImage": "node:20-alpine",
+    "networkMode": "bridge",
+    "memoryLimit": "512m",
+    "cpuLimit": "1.0",
+    "readOnlyRootfs": false,
+    "capDrop": ["ALL"],
+    "capAdd": ["CHOWN", "SETUID", "SETGID"],
+    "securityOpt": ["no-new-privileges"]
+  }
+}
+

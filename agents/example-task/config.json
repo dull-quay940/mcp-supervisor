@@ -1,0 +1,40 @@
+{
+  "id": "example-task",
+  "name": "Example Task Agent",
+  "version": "1.0.0",
+  "description": "A simple demo agent that showcases the basic IPC protocol. Use this as a template for creating new agents.",
+  "capabilities": [
+    "demo",
+    "template"
+  ],
+  "requiresAutonomy": false,
+  "defaultTimeout": 60000,
+  "parameters": {
+    "taskName": {
+      "type": "string",
+      "description": "Name of the task to execute",
+      "required": false,
+      "default": "default task"
+    },
+    "duration": {
+      "type": "number",
+      "description": "Duration in milliseconds to simulate work",
+      "required": false,
+      "default": 2000
+    }
+  },
+  "examples": [
+    {
+      "description": "Run with default parameters",
+      "params": {}
+    },
+    {
+      "description": "Run custom task",
+      "params": {
+        "taskName": "my-custom-task",
+        "duration": 5000
+      }
+    }
+  ]
+}
+

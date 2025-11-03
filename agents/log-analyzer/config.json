@@ -1,0 +1,74 @@
+{
+  "id": "log-analyzer",
+  "name": "Log Analyzer Agent",
+  "version": "1.0.0",
+  "description": "Parses and analyzes log files to extract errors, warnings, statistics, and patterns. Useful for troubleshooting and monitoring.",
+  "capabilities": [
+    "log-parsing",
+    "error-detection",
+    "statistics",
+    "pattern-matching"
+  ],
+  "requiresAutonomy": false,
+  "defaultTimeout": 90000,
+  "parameters": {
+    "logPath": {
+      "type": "string",
+      "description": "Path to the log file to analyze",
+      "required": true
+    },
+    "operation": {
+      "type": "string",
+      "description": "Analysis operation: 'analyze', 'errors', 'warnings', 'stats', 'search'",
+      "required": false,
+      "default": "analyze",
+      "enum": ["analyze", "errors", "warnings", "stats", "search"]
+    },
+    "filters": {
+      "type": "object",
+      "description": "Optional filters (since, keyword, pattern)",
+      "required": false,
+      "properties": {
+        "since": {
+          "type": "string",
+          "description": "Filter logs since this date (ISO format)"
+        },
+        "keyword": {
+          "type": "string",
+          "description": "Filter by keyword"
+        },
+        "pattern": {
+          "type": "string",
+          "description": "Search pattern (regex)"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "description": "Analyze all logs",
+      "params": {
+        "logPath": "/root/Zpanel/agents/mcp-supervisor/logs/actions.log",
+        "operation": "analyze"
+      }
+    },
+    {
+      "description": "Extract only errors",
+      "params": {
+        "logPath": "/root/Zpanel/agents/mcp-supervisor/logs/actions.log",
+        "operation": "errors"
+      }
+    },
+    {
+      "description": "Search for specific pattern",
+      "params": {
+        "logPath": "/root/Zpanel/agents/mcp-supervisor/logs/actions.log",
+        "operation": "search",
+        "filters": {
+          "pattern": "timeout"
+        }
+      }
+    }
+  ]
+}
+

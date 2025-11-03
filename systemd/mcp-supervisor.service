@@ -1,0 +1,36 @@
+# MCP Supervisor systemd service
+# Install: sudo cp systemd/mcp-supervisor.service /etc/systemd/system/
+# Enable: sudo systemctl enable mcp-supervisor
+# Start: sudo systemctl start mcp-supervisor
+
+[Unit]
+Description=MCP Supervisor - Model Context Protocol Agent Manager
+Documentation=https://github.com/yourusername/mcp-supervisor
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/Zpanel/agents/mcp-supervisor
+ExecStart=/usr/bin/node index.js
+Restart=always
+RestartSec=10
+
+# Environment variables
+Environment=NODE_ENV=production
+Environment=ALLOW_AUTONOMY=false
+Environment=SUPERVISOR_PORT=3001
+Environment=DOCKER_ENABLED=false
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Logging
+StandardOutput=append:/var/log/mcp-supervisor.log
+StandardError=append:/var/log/mcp-supervisor-error.log
+SyslogIdentifier=mcp-supervisor
+
+[Install]
+WantedBy=multi-user.target
+

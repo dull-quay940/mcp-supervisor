@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # MCP Supervisor main service
+  supervisor:
+    build:
+      context: .
+      dockerfile: Dockerfile.supervisor
+    container_name: mcp-supervisor
+    restart: unless-stopped
+    ports:
+      - "${SUPERVISOR_PORT:-3001}:3001"
+    environment:
+      - ALLOW_AUTONOMY=${ALLOW_AUTONOMY:-false}
+      - SUPERVISOR_PORT=3001
+      - LOG_PATH=/app/logs/actions.log
+      - MAX_AGENT_RUNTIME_MS=${MAX_AGENT_RUNTIME_MS:-300000}
+      - MAX_AGENT_RETRIES=${MAX_AGENT_RETRIES:-2}
+      - DOCKER_ENABLED=true
+      - NODE_ENV=${NODE_ENV:-production}
+    volumes:
+      # Mount source code
+      - ./:/app
+      # Mount Docker socket for spawning agent containers
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Persistent logs
+      - ./logs:/app/logs
+      # Shared workspace for agents
+      - ./workspace:/app/workspace
+    networks:
+      - mcp-network
+    depends_on:
+      - agent-base
+    command: node index.js
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Build base agent image (doesn't run, just builds)
+  agent-base:
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
+    image: mcp-supervisor-agent:latest
+    container_name: mcp-agent-base
+    command: ["echo", "Agent base image built successfully"]
+
+networks:
+  mcp-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
+
+volumes:
+  logs:
+    driver: local
+  workspace:
+    driver: local
+
+# Notes for Docker-based deployment:
+# 
+# 1. Build and start services:
+#    docker-compose up -d
+#
+# 2. View logs:
+#    docker-compose logs -f supervisor
+#
+# 3. Stop all services:
+#    docker-compose down
+#
+# 4. Rebuild after changes:
+#    docker-compose up -d --build
+#
+# 5. Access supervisor API:
+#    curl http://localhost:3001/registry
+#
+# Security considerations:
+# - The supervisor needs Docker socket access to spawn agent containers
+# - Agent containers run with limited privileges (see manifest.json)
+# - Network isolation via dedicated bridge network
+# - Volume mounts restricted to workspace and logs only
+

@@ -1,0 +1,68 @@
+{
+  "id": "api-caller",
+  "name": "API Caller Agent",
+  "version": "1.0.0",
+  "description": "Makes HTTP/HTTPS requests to external APIs. Supports GET, POST, PUT, DELETE methods with custom headers and request body.",
+  "capabilities": [
+    "http-requests",
+    "api-integration",
+    "rest-api"
+  ],
+  "requiresAutonomy": true,
+  "defaultTimeout": 60000,
+  "parameters": {
+    "url": {
+      "type": "string",
+      "description": "The URL to send the request to",
+      "required": true
+    },
+    "method": {
+      "type": "string",
+      "description": "HTTP method: GET, POST, PUT, DELETE (default: GET)",
+      "required": false,
+      "default": "GET",
+      "enum": ["GET", "POST", "PUT", "DELETE", "PATCH"]
+    },
+    "headers": {
+      "type": "object",
+      "description": "Custom HTTP headers",
+      "required": false,
+      "default": {}
+    },
+    "body": {
+      "type": "any",
+      "description": "Request body (for POST/PUT requests)",
+      "required": false
+    },
+    "timeout": {
+      "type": "number",
+      "description": "Request timeout in milliseconds (default: 30000)",
+      "required": false,
+      "default": 30000
+    }
+  },
+  "examples": [
+    {
+      "description": "Simple GET request",
+      "params": {
+        "url": "https://api.github.com/repos/nodejs/node",
+        "method": "GET"
+      }
+    },
+    {
+      "description": "POST request with JSON body",
+      "params": {
+        "url": "https://httpbin.org/post",
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "test",
+          "value": 123
+        }
+      }
+    }
+  ]
+}
+

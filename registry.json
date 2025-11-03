@@ -1,0 +1,143 @@
+{
+  "version": "1.0.0",
+  "description": "Registry of approved MCP Supervisor agents",
+  "lastUpdated": "2025-11-03T00:00:00.000Z",
+  "agents": [
+    {
+      "id": "example-task",
+      "name": "Example Task Agent",
+      "version": "1.0.0",
+      "description": "A simple demo agent that showcases the basic IPC protocol. Use this as a template for creating new agents.",
+      "path": "./agents/example-task/agent.js",
+      "configPath": "./agents/example-task/config.json",
+      "capabilities": ["demo", "template"],
+      "requiresAutonomy": false,
+      "defaultTimeout": 60000,
+      "dockerImage": null,
+      "enabled": true,
+      "category": "demo"
+    },
+    {
+      "id": "image-optimize",
+      "name": "Image Optimization Agent",
+      "version": "1.0.0",
+      "description": "Compresses and optimizes images (JPEG, PNG, WebP) while maintaining quality. Reduces file sizes for faster loading times.",
+      "path": "./agents/image-optimize/agent.js",
+      "configPath": "./agents/image-optimize/config.json",
+      "capabilities": ["image-processing", "compression", "format-conversion"],
+      "requiresAutonomy": true,
+      "defaultTimeout": 120000,
+      "dockerImage": null,
+      "enabled": true,
+      "category": "media"
+    },
+    {
+      "id": "file-processor",
+      "name": "File Processor Agent",
+      "version": "1.0.0",
+      "description": "Performs file operations including copy, move, rename, and organize files by extension, date, or size.",
+      "path": "./agents/file-processor/agent.js",
+      "configPath": "./agents/file-processor/config.json",
+      "capabilities": ["file-operations", "copy", "move", "rename", "organize"],
+      "requiresAutonomy": true,
+      "defaultTimeout": 120000,
+      "dockerImage": null,
+      "enabled": true,
+      "category": "filesystem"
+    },
+    {
+      "id": "api-caller",
+      "name": "API Caller Agent",
+      "version": "1.0.0",
+      "description": "Makes HTTP/HTTPS requests to external APIs. Supports GET, POST, PUT, DELETE methods with custom headers and request body.",
+      "path": "./agents/api-caller/agent.js",
+      "configPath": "./agents/api-caller/config.json",
+      "capabilities": ["http-requests", "api-integration", "rest-api"],
+      "requiresAutonomy": true,
+      "defaultTimeout": 60000,
+      "dockerImage": null,
+      "enabled": true,
+      "category": "network"
+    },
+    {
+      "id": "data-transformer",
+      "name": "Data Transformer Agent",
+      "version": "1.0.0",
+      "description": "Converts data between different formats (JSON, CSV, XML). Useful for data migration and integration tasks.",
+      "path": "./agents/data-transformer/agent.js",
+      "configPath": "./agents/data-transformer/config.json",
+      "capabilities": ["data-conversion", "json", "csv", "xml", "format-transformation"],
+      "requiresAutonomy": true,
+      "defaultTimeout": 90000,
+      "dockerImage": null,
+      "enabled": true,
+      "category": "data"
+    },
+    {
+      "id": "backup-manager",
+      "name": "Backup Manager Agent",
+      "version": "1.0.0",
+      "description": "Creates, restores, and manages file/directory backups with optional compression support.",
+      "path": "./agents/backup-manager/agent.js",
+      "configPath": "./agents/backup-manager/config.json",
+      "capabilities": ["backup", "restore", "compression", "file-management"],
+      "requiresAutonomy": true,
+      "defaultTimeout": 180000,
+      "dockerImage": null,
+      "enabled": true,
+      "category": "filesystem"
+    },
+    {
+      "id": "log-analyzer",
+      "name": "Log Analyzer Agent",
+      "version": "1.0.0",
+      "description": "Parses and analyzes log files to extract errors, warnings, statistics, and patterns. Useful for troubleshooting and monitoring.",
+      "path": "./agents/log-analyzer/agent.js",
+      "configPath": "./agents/log-analyzer/config.json",
+      "capabilities": ["log-parsing", "error-detection", "statistics", "pattern-matching"],
+      "requiresAutonomy": false,
+      "defaultTimeout": 90000,
+      "dockerImage": null,
+      "enabled": true,
+      "category": "monitoring"
+    },
+    {
+      "id": "health-checker",
+      "name": "Health Checker Agent",
+      "version": "1.0.0",
+      "description": "Monitors system health including CPU, memory, disk usage, and process status. Essential for system monitoring and alerting.",
+      "path": "./agents/health-checker/agent.js",
+      "configPath": "./agents/health-checker/config.json",
+      "capabilities": ["system-monitoring", "cpu-check", "memory-check", "disk-check", "process-check"],
+      "requiresAutonomy": false,
+      "defaultTimeout": 60000,
+      "dockerImage": null,
+      "enabled": true,
+      "category": "monitoring"
+    }
+  ],
+  "categories": {
+    "demo": "Demonstration and template agents",
+    "media": "Image and video processing",
+    "filesystem": "File and directory operations",
+    "network": "Network and API operations",
+    "data": "Data transformation and processing",
+    "monitoring": "System monitoring and analysis"
+  },
+  "howToAddAgent": {
+    "steps": [
+      "1. Create a new directory under agents/ with your agent name",
+      "2. Create agent.js that implements the IPC protocol (see example-task)",
+      "3. Create config.json with agent metadata and parameters",
+      "4. Add agent entry to this registry.json file",
+      "5. Set 'enabled: true' to activate the agent",
+      "6. Test with: POST /run-agent with your agent ID"
+    ],
+    "requiredIPC": {
+      "listen": "process.on('message', callback)",
+      "send": "process.send({ status, progress, result, error })",
+      "statusValues": ["running", "complete", "error", "stopped"]
+    }
+  }
+}
+

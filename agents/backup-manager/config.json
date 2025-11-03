@@ -1,0 +1,67 @@
+{
+  "id": "backup-manager",
+  "name": "Backup Manager Agent",
+  "version": "1.0.0",
+  "description": "Creates, restores, and manages file/directory backups with optional compression support.",
+  "capabilities": [
+    "backup",
+    "restore",
+    "compression",
+    "file-management"
+  ],
+  "requiresAutonomy": true,
+  "defaultTimeout": 180000,
+  "parameters": {
+    "operation": {
+      "type": "string",
+      "description": "Operation: 'create', 'restore', or 'list'",
+      "required": true,
+      "enum": ["create", "restore", "list"]
+    },
+    "sourcePath": {
+      "type": "string",
+      "description": "Path to backup (for create operation)",
+      "required": false
+    },
+    "backupDir": {
+      "type": "string",
+      "description": "Directory to store/list backups",
+      "required": false
+    },
+    "backupPath": {
+      "type": "string",
+      "description": "Path to backup file (for restore operation)",
+      "required": false
+    },
+    "restorePath": {
+      "type": "string",
+      "description": "Path to restore backup to",
+      "required": false
+    },
+    "compress": {
+      "type": "boolean",
+      "description": "Compress backup (default: true)",
+      "required": false,
+      "default": true
+    }
+  },
+  "examples": [
+    {
+      "description": "Create compressed backup",
+      "params": {
+        "operation": "create",
+        "sourcePath": "/root/Zpanel/agents/mcp-supervisor/workspace",
+        "backupDir": "/root/Zpanel/agents/mcp-supervisor/backups",
+        "compress": true
+      }
+    },
+    {
+      "description": "List all backups",
+      "params": {
+        "operation": "list",
+        "backupDir": "/root/Zpanel/agents/mcp-supervisor/backups"
+      }
+    }
+  ]
+}
+
