@@ -22,7 +22,7 @@ Your MCP Supervisor is a complete, production-ready GitHub repository!
 Fresh VPS deployment after cloning:
 
 \`\`\`bash
-git clone https://github.com/YOUR_USERNAME/mcp-supervisor.git
+git clone https://github.com/freqkflag/mcp-supervisor.git
 cd mcp-supervisor
 ./INSTALL.sh
 \`\`\`
@@ -101,7 +101,7 @@ Settings:
 cd /root/Zpanel/agents/mcp-supervisor
 
 # Add your GitHub repository
-git remote add origin https://github.com/YOUR_USERNAME/mcp-supervisor.git
+git remote add origin https://github.com/freqkflag/mcp-supervisor.git
 
 # Push to GitHub
 git push -u origin main
@@ -115,9 +115,9 @@ Your repository is live on GitHub!
 
 ## 🎯 Quick Links (After Publishing)
 
-- **Clone**: \`git clone https://github.com/YOUR_USERNAME/mcp-supervisor.git\`
-- **Issues**: \`https://github.com/YOUR_USERNAME/mcp-supervisor/issues\`
-- **Actions**: \`https://github.com/YOUR_USERNAME/mcp-supervisor/actions\`
+- **Clone**: \`git clone https://github.com/freqkflag/mcp-supervisor.git\`
+- **Issues**: \`https://github.com/freqkflag/mcp-supervisor/issues\`
+- **Actions**: \`https://github.com/freqkflag/mcp-supervisor/actions\`
 
 ---
 
@@ -127,7 +127,7 @@ On a fresh VPS:
 
 \`\`\`bash
 # Clone and install
-git clone https://github.com/YOUR_USERNAME/mcp-supervisor.git
+git clone https://github.com/freqkflag/mcp-supervisor.git
 cd mcp-supervisor
 ./INSTALL.sh
 
@@ -223,11 +223,11 @@ Users can:
 
 \`\`\`bash
 # For You (Initial Push)
-git remote add origin https://github.com/YOUR_USERNAME/mcp-supervisor.git
+git remote add origin https://github.com/freqkflag/mcp-supervisor.git
 git push -u origin main
 
 # For Users (Clone & Deploy)
-git clone https://github.com/YOUR_USERNAME/mcp-supervisor.git
+git clone https://github.com/freqkflag/mcp-supervisor.git
 cd mcp-supervisor
 ./INSTALL.sh
 npm run dev

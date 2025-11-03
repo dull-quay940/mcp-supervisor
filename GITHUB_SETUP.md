@@ -21,7 +21,7 @@ GitHub will show you commands. Use these:
 cd /root/Zpanel/agents/mcp-supervisor
 
 # Add remote
-git remote add origin https://github.com/YOUR_USERNAME/mcp-supervisor.git
+git remote add origin https://github.com/freqkflag/mcp-supervisor.git
 
 # Push to main branch
 git push -u origin main
@@ -46,7 +46,7 @@ The repository includes GitHub Actions workflow (`.github/workflows/test.yml`) t
 ### Step 5: Update README URLs
 
 After publishing, update these references in README.md:
-- Replace `yourusername` with your actual GitHub username
+- Replace `freqkflag` with your actual GitHub username
 - Update clone URLs
 - Update any other repository-specific URLs
 
@@ -146,7 +146,7 @@ Add these badges to README.md (top):
 ```markdown
 ![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-![Tests](https://github.com/YOUR_USERNAME/mcp-supervisor/actions/workflows/test.yml/badge.svg)
+![Tests](https://github.com/freqkflag/mcp-supervisor/actions/workflows/test.yml/badge.svg)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 ```
 
@@ -185,10 +185,10 @@ Enable Wiki in repository settings for:
 
 ## 🔗 Quick Links After Publishing
 
-- **Repository**: https://github.com/YOUR_USERNAME/mcp-supervisor
-- **Issues**: https://github.com/YOUR_USERNAME/mcp-supervisor/issues
-- **Releases**: https://github.com/YOUR_USERNAME/mcp-supervisor/releases
-- **Actions**: https://github.com/YOUR_USERNAME/mcp-supervisor/actions
+- **Repository**: https://github.com/freqkflag/mcp-supervisor
+- **Issues**: https://github.com/freqkflag/mcp-supervisor/issues
+- **Releases**: https://github.com/freqkflag/mcp-supervisor/releases
+- **Actions**: https://github.com/freqkflag/mcp-supervisor/actions
 
 ## ✅ Pre-Publication Checklist
 
@@ -209,7 +209,7 @@ Everything is prepared for deployment. Just push to GitHub and you're live!
 
 ```bash
 # Final push command
-git remote add origin https://github.com/YOUR_USERNAME/mcp-supervisor.git
+git remote add origin https://github.com/freqkflag/mcp-supervisor.git
 git push -u origin main
 ```
 

@@ -10,7 +10,7 @@
 ### One-Command Installation
 
 ```bash
-git clone https://github.com/yourusername/mcp-supervisor.git
+git clone https://github.com/freqkflag/mcp-supervisor.git
 cd mcp-supervisor
 ./INSTALL.sh
 ```
@@ -42,7 +42,7 @@ sudo yum install -y nodejs
 ### Step 2: Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/mcp-supervisor.git
+git clone https://github.com/freqkflag/mcp-supervisor.git
 cd mcp-supervisor
 ```
 
@@ -410,7 +410,7 @@ npm start
 
 ## 📞 Support
 
-- **Issues**: https://github.com/yourusername/mcp-supervisor/issues
+- **Issues**: https://github.com/freqkflag/mcp-supervisor/issues
 - **Docs**: See README.md and other markdown files
 - **Logs**: Check `logs/actions.log`
 

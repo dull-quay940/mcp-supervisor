@@ -6,7 +6,7 @@ Thank you for considering contributing to MCP Supervisor! This document provides
 
 ### Reporting Bugs
 
-1. Check if the bug has already been reported in [Issues](https://github.com/yourusername/mcp-supervisor/issues)
+1. Check if the bug has already been reported in [Issues](https://github.com/freqkflag/mcp-supervisor/issues)
 2. If not, create a new issue with:
    - Clear title and description
    - Steps to reproduce
